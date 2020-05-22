@@ -1,13 +1,10 @@
 Docker Image for GMVault
 ========================
 
+Fork
+----
 
-Code Status
------------
-
-[![Docker Build Status](https://img.shields.io/docker/build/aubertg/gmvault-docker.svg)](https://hub.docker.com/r/aubertg/gmvault-docker/builds/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/aubertg/gmvault-docker.svg)](https://hub.docker.com/r/aubertg/gmvault-docker/)
-
+This image uses (app) password authentication instead of oAUTH, because somehow GMVault app seems to be blocked in some use cases and cannot be used.
 
 Overview
 --------
@@ -37,8 +34,8 @@ that effect, you will need to go through the following set up the first time
 you run this container:
 
 1. Attach a terminal to your container.
-2. Run this command: `su -c 'gmvault sync -d /data ${GMVAULT_EMAIL_ADDRESS}' gmvault`
-3. Go to the URL indicated, and copy the token back.
+2. Run this command: `su -c 'gmvault sync -d /data ${GMVAULT_EMAIL_ADDRESS} -p --store-passwd' gmvault`
+3. Enter the generated GMail app password.
 4. Once the synchronization process starts, restart the container.
 
 
@@ -81,13 +78,13 @@ The container is configurable through the following environment variables:
 	The email address to send reports to; defaults to `GMVAULT_EMAIL_ADDRESS`.
 
 * **`GMVAULT_UID`** *(optional)*  
-	Numeric uid in the host that should own created files; defaults to 9000.
+	Numeric uid in the host that should own created files; defaults to 1028.
 
 * **`GMVAULT_GID`** *(optional)*  
-	Numeric gid in the host that should own created files; defaults to 9000.
+	Numeric gid in the host that should own created files; defaults to 100.
 
 * **`GMVAULT_TIMEZONE`** *(optional)*  
-	Timezone; defaults to America/Los_Angeles.
+	Timezone; defaults to Europe/Amsterdam.
 
 * **`GMVAULT_OPTIONS`** *(optional)*  
 	Additional options to pass to gmvault (such as `--c no`).
