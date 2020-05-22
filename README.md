@@ -78,10 +78,10 @@ The container is configurable through the following environment variables:
 	The email address to send reports to; defaults to `GMVAULT_EMAIL_ADDRESS`.
 
 * **`GMVAULT_UID`** *(optional)*  
-	Numeric uid in the host that should own created files; defaults to 1028.
+	Numeric uid in the host that should own created files; defaults to 9000.
 
 * **`GMVAULT_GID`** *(optional)*  
-	Numeric gid in the host that should own created files; defaults to 100.
+	Numeric gid in the host that should own created files; defaults to 9000.
 
 * **`GMVAULT_TIMEZONE`** *(optional)*  
 	Timezone; defaults to Europe/Amsterdam.
